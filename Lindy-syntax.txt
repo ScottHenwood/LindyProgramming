@@ -1,0 +1,30 @@
+#Lead | Follow
+# There is an array with n values. Lead starts at index 1, follow starts at index 0.
+# If your parner is rocksteping backwards, and you move forward, you move back a register. Look through the mirror.
+
+
+Rock-step | Rock-step
+#next register
+Triple-step | Triple-step
+#add three
+Step-step[spot] | Step-step
+#times two
+Triple-step | Triple-step
+#divide two
+
+Rock-step &> left-rotation | Rock-step
+Triple-step[forward,spot,spot] &> open-doorway | Triple-step &> right-rotation
+Triple-step[backwards] | Triple-step[backwards]
+
+Rock-step[backwards] | Step-step[forward]
+Triple-step[forward] &> open-doorway | Triple-step &> left-rotation
+Triple-step[backwards] &> collect | Triple-step[backwards]
+
+Rock-step | Rock-step
+#next register
+Kick-step | Kick-step
+#square
+Kick-hitch | Kick-hitch
+#cube
+Kick[backwards]-step | Kick[backwards]-step
+#square root
