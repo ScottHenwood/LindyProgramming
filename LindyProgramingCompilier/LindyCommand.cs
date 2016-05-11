@@ -8,5 +8,11 @@ namespace LindyProgramingCompilier
 {
     public class LindyCommand
     {
+        public bool IsLead { get; internal set; }
+
+        internal virtual void Dance(DanceFloor danceFloor)
+        {
+            
+        }
     }
 }

@@ -9,7 +9,19 @@ namespace LindyProgramingCompilier
     public class LindyCommandPair
     {
         public string CommandActions { get; protected set; }
-        public LindyCommand FollowCommand { get; set; }
-        public LindyCommand LeadCommand { get; set; }
+        private LindyCommand _followCommand;
+        public LindyCommand FollowCommand
+        {
+            get { return _followCommand; }
+            set { _followCommand = value; _followCommand.IsLead = false; }
+        }
+
+        private LindyCommand _leadCommand;
+        public LindyCommand LeadCommand
+        {
+            get { return _leadCommand; }
+            set { _leadCommand = value; _leadCommand.IsLead = true ; }
+        }
+        
     }
 }
