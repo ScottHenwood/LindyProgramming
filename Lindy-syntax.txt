@@ -16,7 +16,7 @@ Rock-step &> left-rotation | Rock-step
 Triple-step[forward,spot,spot] &> open-doorway | Triple-step &> right-rotation
 Triple-step[backwards] | Triple-step[backwards]
 
-Rock-step[backwards] | Step-step[forward]
+Rock-step | Step-step[forward]
 Triple-step[forward] &> open-doorway | Triple-step &> left-rotation
 Triple-step[backwards] &> collect | Triple-step[backwards]
 

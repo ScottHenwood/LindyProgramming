@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LindyProgramingCompilier.Commands;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,12 +17,27 @@ namespace LindyProgramingCompilier
 
         public LindyCommandPair CreateCommandPair(Tuple<string, string> commandPair)
         {
-            return new LindyCommandPair() { LeadCommand = new LindyCommand(), FollowCommand = new LindyCommand() } ;
+            LindyCommand leadCommand = null;
+            LindyCommand followCommand = null;
+            if (commandPair.Item1.ToLower().Equals("rock-step"))
+            {
+                leadCommand = new MoveRegister();
+                if (commandPair.Item2.ToLower().Equals("rock-step"))
+                {
+                    followCommand = new MoveRegister();
+                }
+                else
+                {
+                    followCommand = new MoveRegister() { Direction = RegisterDirection.Down };
+                }
+                
+            }
+            return new LindyCommandPair() { LeadCommand = leadCommand, FollowCommand = followCommand } ;
         }
 
         public LindyCommand CreateCommand(string commandText)
         {
-            return new LindyCommand();
+            return new MoveRegister();
         }
     }
 }

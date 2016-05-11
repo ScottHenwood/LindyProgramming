@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using LindyProgramingCompilier;
+using LindyProgramingCompilier.Commands;
 
 namespace LindyProgrammingTestProject
 {
@@ -27,28 +28,6 @@ namespace LindyProgrammingTestProject
             Assert.AreEqual("Rock-step", commandPair2.Item1);
             Assert.AreEqual("Step-step[forward]", commandPair2.Item2);
         }
-
-        [TestMethod]
-        public void CreateCommandPair()
-        {
-            Tuple<string, string> commandPairTuple = new Tuple<string, string>("Rock-step", "Rock-step");
-            var parser = new LindyParser();
-            LindyCommandPair commandPair = parser.CreateCommandPair(commandPairTuple);
-            Assert.IsNotNull(commandPair);
-            LindyCommand leadCommand = commandPair.LeadCommand;
-            Assert.IsNotNull(leadCommand);
-
-            LindyCommand followCommand = commandPair.FollowCommand;
-            Assert.IsNotNull(followCommand);
-        }
-
-        [TestMethod]
-        public void CreateLindyCommand()
-        {
-            var parser = new LindyParser();
-            LindyCommand command = parser.CreateCommand("Rock-step");
-            Assert.IsNotNull(command);
-
-        }
+        
     }
 }
