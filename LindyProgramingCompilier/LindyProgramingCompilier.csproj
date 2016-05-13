@@ -44,6 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\MoveRegister.cs" />
+    <Compile Include="Commands\StepStep.cs" />
+    <Compile Include="Commands\TripleStep.cs" />
     <Compile Include="DanceFloor.cs" />
     <Compile Include="LindyCommand.cs" />
     <Compile Include="LindyCommandPair.cs" />

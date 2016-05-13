@@ -29,35 +29,6 @@ namespace LindyProgrammingTestProject
             Assert.AreEqual("Rock-step", commandPair2.Item1);
             Assert.AreEqual("Step-step[forward]", commandPair2.Item2);
         }
-
-        [TestMethod]
-        public void RunCommands()
-        {
-            Tuple<string, string> commandPairTuple = new Tuple<string, string>("Rock-step", "Rock-step");
-            var parser = new LindyParser();
-            LindyCommandPair commandPair = parser.CreateCommandPair(commandPairTuple);
-
-            //List<int> danceFloor = new List<int>(10);
-            DanceFloor danceFloor = new DanceFloor();
-            Assert.AreEqual(0, danceFloor.FollowPosition);
-            Assert.AreEqual(1, danceFloor.LeadPosition);
-            danceFloor.Run(commandPair);
-
-            Assert.AreEqual(1, danceFloor.FollowPosition);
-            Assert.AreEqual(2, danceFloor.LeadPosition);
-
-            danceFloor.Run(commandPair);
-
-            Assert.AreEqual(2, danceFloor.FollowPosition);
-            Assert.AreEqual(3, danceFloor.LeadPosition);
-
-            LindyCommandPair commandPair2 = parser.CreateCommandPair(new Tuple<string, string>("Rock-step", "Step-step"));
-            danceFloor.Run(commandPair2);
-
-            Assert.AreEqual(1, danceFloor.FollowPosition);
-            Assert.AreEqual(4, danceFloor.LeadPosition);
-
-        }
         
     }
 }

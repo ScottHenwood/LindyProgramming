@@ -32,6 +32,20 @@ namespace LindyProgramingCompilier
                 }
                 
             }
+            else if (commandPair.Item1.ToLower().Equals("triple-step"))
+            {
+                leadCommand = new TripleStep();
+                followCommand = new TripleStep();
+            }
+            else if (commandPair.Item1.ToLower().Equals("step-step"))
+            {
+                leadCommand = new StepStep();
+                followCommand = new StepStep();
+            }
+            else
+            {
+                throw new ArgumentException("Not a valid command");
+            }
             return new LindyCommandPair() { LeadCommand = leadCommand, FollowCommand = followCommand } ;
         }
 

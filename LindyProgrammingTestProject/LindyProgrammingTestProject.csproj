@@ -55,6 +55,7 @@
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CommandPairTest.cs" />
+    <Compile Include="DanceFloorDanceTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LindyProgramingCompilier\LindyProgramingCompilier.csproj">

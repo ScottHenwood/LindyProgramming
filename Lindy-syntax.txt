@@ -6,11 +6,11 @@
 Rock-step | Rock-step
 #next register
 Triple-step | Triple-step
-#add three
+#times three
 Step-step[spot] | Step-step
-#times two
+#add two
 Triple-step | Triple-step
-#divide two
+#divide three
 
 Rock-step &> left-rotation | Rock-step
 Triple-step[forward,spot,spot] &> open-doorway | Triple-step &> right-rotation
