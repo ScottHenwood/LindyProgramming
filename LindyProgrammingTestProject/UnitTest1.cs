@@ -29,6 +29,20 @@ namespace LindyProgrammingTestProject
             Assert.AreEqual("Rock-step", commandPair2.Item1);
             Assert.AreEqual("Step-step[forward]", commandPair2.Item2);
         }
+
+        [TestMethod]
+        public void ParseMoreThanOneLine()
+        {
+            string lindyCommandString = "Rock-step | Rock-step \n Step-step | Step-step";
+            
+            var parser = new LindyParser();
+            string[] commandArray = parser.ParseCommandText(lindyCommandString);
+            Assert.AreEqual(2, commandArray.Length);
+
+            lindyCommandString += " \n Step-step | Step-step";
+            commandArray = parser.ParseCommandText(lindyCommandString);
+            Assert.AreEqual(3, commandArray.Length);
+        }
         
     }
 }

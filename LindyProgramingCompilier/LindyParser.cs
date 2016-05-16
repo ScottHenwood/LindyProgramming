@@ -49,6 +49,16 @@ namespace LindyProgramingCompilier
             return new LindyCommandPair() { LeadCommand = leadCommand, FollowCommand = followCommand } ;
         }
 
+        public string[] ParseCommandText(string lindyCommandString)
+        {
+            string[] commands = lindyCommandString.Split('\n');
+            for (int i = 0; i < commands.Length; i++)
+            {
+                commands[i] = commands[i].Trim();
+            }
+            return lindyCommandString.Split('\n');
+        }
+
         public LindyCommand CreateCommand(string commandText)
         {
             return new MoveRegister();
