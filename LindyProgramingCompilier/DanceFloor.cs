@@ -35,6 +35,12 @@ namespace LindyProgramingCompilier
             //LeadPosition += 1;
         }
 
+        internal string PositionValuesString()
+        {
+            return "f (" + FollowPosition + "): " + _floorValues[FollowPosition] + " & "
+                + "l (" + LeadPosition + "): " + _floorValues[LeadPosition];
+        }
+
         public int GetPositionValue(int index)
         {
             return _floorValues[index];
