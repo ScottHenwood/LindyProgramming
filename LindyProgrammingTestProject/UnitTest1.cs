@@ -43,6 +43,23 @@ namespace LindyProgrammingTestProject
             commandArray = parser.ParseCommandText(lindyCommandString);
             Assert.AreEqual(3, commandArray.Length);
         }
+
+        [TestMethod]
+        public void ParseManyLinesOfCommands()
+        {
+            string[] lindyCommandString = { "Rock-step | Rock-step", "Step-step | Step-step" };
+
+            var parser = new LindyParser();
+            List<Tuple<string, string>> commandArray = parser.ParseCommandText(lindyCommandString);
+            Assert.AreEqual(2, commandArray.Count);
+            Assert.AreEqual("Rock-step", commandArray[0].Item1);
+            Assert.AreEqual("Step-step", commandArray[1].Item2);
+
+            //lindyCommandString.SetValue("Step-step | Step-step", 2);
+            lindyCommandString = new [] { "Rock-step | Rock-step", "Step-step | Step-step", "Step-step | Step-step" };
+            commandArray = parser.ParseCommandText(lindyCommandString);
+            Assert.AreEqual(3, commandArray.Count);
+        }
         
     }
 }

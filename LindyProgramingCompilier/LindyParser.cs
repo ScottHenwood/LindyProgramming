@@ -59,6 +59,17 @@ namespace LindyProgramingCompilier
             return lindyCommandString.Split('\n');
         }
 
+        public List<Tuple<string, string>> ParseCommandText(string[] lindyCommandString)
+        {
+            List<Tuple<string, string>> commandPairs = new List<Tuple<string, string>>();
+
+            foreach(string command in lindyCommandString)
+            {
+                commandPairs.Add(ParseCommandPair(command));
+            }
+            return commandPairs;
+        }
+
         public LindyCommand CreateCommand(string commandText)
         {
             return new MoveRegister();
