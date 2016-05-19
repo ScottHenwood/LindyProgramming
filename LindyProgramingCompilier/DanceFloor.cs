@@ -12,6 +12,7 @@ namespace LindyProgramingCompilier
         public int LeadPosition { get; set; } = 1;
 
         private List<int> _floorValues;
+        private List<Dancer> _dancers = new List<Dancer>();
 
         public DanceFloor()
         {
@@ -37,13 +38,18 @@ namespace LindyProgramingCompilier
 
         public void AddDancer(Dancer dancer)
         {
+            _dancers.Add(dancer);
             dancer.Floor = this;
         }
 
         internal string PositionValuesString()
         {
-            return "f (" + FollowPosition + "): " + _floorValues[FollowPosition] + " & "
-                + "l (" + LeadPosition + "): " + _floorValues[LeadPosition];
+            string outString = "";
+            foreach (var dancer in _dancers)
+            {
+                outString += $"({dancer.CurrentPosition.Value}) = {_floorValues[dancer.CurrentPosition.Value]} | ";
+            }
+            return outString;
         }
 
         public int GetPositionValue(int index)

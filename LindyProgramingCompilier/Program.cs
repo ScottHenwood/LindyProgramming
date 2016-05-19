@@ -13,7 +13,8 @@ namespace LindyProgramingCompilier
         {
             LindyParser parser = new LindyParser();
             DanceFloor floor = new DanceFloor();
-
+            var dancer = new Dancer();
+            floor.AddDancer(dancer);
             WriteLine("Welcome to Lindy compilier :-) ");
             WriteLine("Please enter a command: ");
             string lindyCommandString = ReadLine();
@@ -22,9 +23,10 @@ namespace LindyProgramingCompilier
             {
                 try
                 {
-                    var commandPair = parser.CreateCommandPair(parser.ParseCommandPair(lindyCommandString));
+                    //var commandPair = parser.CreateCommandPair(parser.ParseCommandPair(lindyCommandString));
 
-                    floor.Run(commandPair);
+                    //floor.Run(commandPair);
+                    dancer.Dance(lindyCommandString);
                     WriteLine("\nCurrent State => " + floor.PositionValuesString());
                 }
                 catch(ArgumentException e) when (e.Message.Contains("command"))
