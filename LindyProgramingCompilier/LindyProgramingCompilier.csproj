@@ -50,6 +50,7 @@
     <Compile Include="LindyCommand.cs" />
     <Compile Include="LindyCommandPair.cs" />
     <Compile Include="LindyParser.cs" />
+    <Compile Include="MusicStream.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

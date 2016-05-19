@@ -68,5 +68,11 @@ namespace LindyProgrammingTestProject
 
 
         }
+
+        [TestMethod]
+        public void StepStepOnTheSpot()
+        {
+            // todo step[forward]-step[back]
+        }
     }
 }
