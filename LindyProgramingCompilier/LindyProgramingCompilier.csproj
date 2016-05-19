@@ -47,10 +47,13 @@
     <Compile Include="Commands\StepStep.cs" />
     <Compile Include="Commands\TripleStep.cs" />
     <Compile Include="DanceFloor.cs" />
+    <Compile Include="Dancer.cs" />
     <Compile Include="LindyCommand.cs" />
     <Compile Include="LindyCommandPair.cs" />
     <Compile Include="LindyParser.cs" />
+    <Compile Include="Momentum.cs" />
     <Compile Include="MusicStream.cs" />
+    <Compile Include="Position.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

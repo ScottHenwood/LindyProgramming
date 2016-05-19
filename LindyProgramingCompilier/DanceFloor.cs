@@ -35,6 +35,11 @@ namespace LindyProgramingCompilier
             //LeadPosition += 1;
         }
 
+        public void AddDancer(Dancer dancer)
+        {
+            dancer.Floor = this;
+        }
+
         internal string PositionValuesString()
         {
             return "f (" + FollowPosition + "): " + _floorValues[FollowPosition] + " & "
