@@ -18,16 +18,41 @@ namespace LindyProgramingCompilier
             }
         }
 
-        public Position CurrentPosition { get; private set; }
+        private Position _currentPosition;
+        public Position CurrentPosition
+        {
+            get
+            {
+                if (_currentPosition == null)
+                {
+                    throw new InvalidOperationException("The dancer is not on a dance floor!");
+                }
+                else
+                {
+                    return _currentPosition;
+                }
+            }
+            private set { _currentPosition = value; }
+        }
+
+        public Momentum CurrentMomentum { get; private set; } = new Momentum();
 
         public void StepStep()
         {
+            CurrentPosition.UseMomentum(CurrentMomentum);
             Floor.SetPositionValue(CurrentPosition.Value, _floor.GetPositionValue(CurrentPosition.Value) + 2);
         }
 
         public void TripleStep()
         {
+            CurrentPosition.UseMomentum(CurrentMomentum);
             Floor.SetPositionValue(CurrentPosition.Value, _floor.GetPositionValue(CurrentPosition.Value) * 3);
+        }
+
+        public void RockStep()
+        {
+            CurrentMomentum = new Momentum() { IsLinear = true, IsMoving = true };
+            CurrentPosition.UseMomentum(CurrentMomentum);
         }
 
         public MethodInfo GetFunction(string commandName)

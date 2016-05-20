@@ -42,6 +42,33 @@ namespace LindyProgrammingTestProject
         }
 
         [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void DancerNotDancing()
+        {
+            var dancer = new Dancer();
+
+            var value = dancer.CurrentPosition.Value; // should throw
+        }
+
+        [TestMethod]
+        public void DancerMoving()
+        {
+            var dancer = new Dancer();
+            var floor = new DanceFloor();
+            floor.AddDancer(dancer);
+            dancer.Dance("RockStep");
+            Assert.AreEqual(1, dancer.CurrentPosition.Value);
+            dancer.TripleStep();
+            Assert.AreEqual(2, dancer.CurrentPosition.Value);
+            Assert.AreEqual(0, floor.GetPositionValue(dancer.CurrentPosition.Value));
+
+            dancer.StepStep();
+            Assert.AreEqual(3, dancer.CurrentPosition.Value);
+            Assert.AreEqual(2, floor.GetPositionValue(dancer.CurrentPosition.Value));
+
+        }
+
+        [TestMethod]
         public void CreatePosition()
         {
             var position = new Position();

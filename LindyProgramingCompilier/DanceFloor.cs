@@ -52,6 +52,29 @@ namespace LindyProgramingCompilier
             return outString;
         }
 
+        internal string ValueGrid()
+        {
+            string valueGrid = "";
+            for (int i = 0; i < _floorValues.Count; i++)
+            {
+                var occupyingDancers = _dancers.Select((d) => d.CurrentPosition.Value == i);
+                if (occupyingDancers.Any())
+                {
+                    valueGrid += $"  [{_floorValues[i]}]";
+                }
+                else
+                {
+                    valueGrid += $"  {_floorValues[i]}";
+                }
+
+                if ((i + 1) % 10 == 0)
+                {
+                    valueGrid += "\n";
+                }
+            }
+            return valueGrid;
+        }
+
         public int GetPositionValue(int index)
         {
             return _floorValues[index];

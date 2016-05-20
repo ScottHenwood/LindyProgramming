@@ -28,6 +28,7 @@ namespace LindyProgramingCompilier
                     //floor.Run(commandPair);
                     dancer.Dance(lindyCommandString);
                     WriteLine("\nCurrent State => " + floor.PositionValuesString());
+                    WriteLine(floor.ValueGrid());
                 }
                 catch(ArgumentException e) when (e.Message.Contains("command"))
                 {
