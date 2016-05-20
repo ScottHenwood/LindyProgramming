@@ -66,6 +66,18 @@ namespace LindyProgrammingTestProject
             Assert.AreEqual(3, dancer.CurrentPosition.Value);
             Assert.AreEqual(2, floor.GetPositionValue(dancer.CurrentPosition.Value));
 
+            dancer.Dance(new DanceStep("StepStep") { Direction = "Change" });
+            Assert.AreEqual(3, dancer.CurrentPosition.Value);
+            Assert.AreEqual(4, floor.GetPositionValue(dancer.CurrentPosition.Value));
+
+            dancer.Dance("StepStep");
+            Assert.AreEqual(2, dancer.CurrentPosition.Value);
+            Assert.AreEqual(2, floor.GetPositionValue(dancer.CurrentPosition.Value));
+
+            var danceStep = DanceStep.Create("StepStep>Change");
+            dancer.Dance(danceStep);
+            Assert.AreEqual(2, dancer.CurrentPosition.Value);
+            Assert.AreEqual(4, floor.GetPositionValue(dancer.CurrentPosition.Value));
         }
 
         [TestMethod]

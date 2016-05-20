@@ -14,7 +14,18 @@ namespace LindyProgramingCompilier
         {
             if (currentMomentum.IsMoving && currentMomentum.IsLinear)
             {
-                Value += 1;
+                if (currentMomentum.IsForward)
+                {
+                    Value += 1;
+                }
+                else
+                {
+                    Value -= 1;
+                }
+            }
+            else if (currentMomentum.IsHanging)
+            {
+                currentMomentum.TippingPoint();
             }
         }
     }

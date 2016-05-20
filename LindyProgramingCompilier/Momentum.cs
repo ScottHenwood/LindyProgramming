@@ -9,7 +9,24 @@ namespace LindyProgramingCompilier
     public class Momentum
     {
         public bool IsLinear { get; set; }
-        public bool IsMoving { get; set; }
+        private bool _isMoving;
+        public bool IsMoving { get { return _isMoving && !IsHanging; } set { _isMoving = value; } }
         public bool IsRotational { get; set; }
+
+        public bool IsForward { get; set; }
+        public bool IsHanging { get; set; }
+
+        public void TippingPoint()
+        {
+            IsHanging = false;
+        }
+
+        public void Change()
+        {
+            IsHanging = true;
+            IsForward = !IsForward;
+        }
+
+
     }
 }

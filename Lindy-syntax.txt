@@ -1,7 +1,7 @@
 #Lead | Follow
 # There is an array with n values. Lead starts at index 1, follow starts at index 0.
 # If your parner is rocksteping backwards, and you move forward, you move back a register. Look through the mirror.
-
+# This is an idea of what the commands might look like.
 
 Rock-step | Rock-step
 #next register
@@ -12,7 +12,7 @@ Step-step[spot] | Step-step
 Triple-step | Triple-step
 #divide three
 
-Rock-step &> left-rotation | Rock-step
+Rock-step &>  left-rotation | Rock-step
 Triple-step[forward,spot,spot] &> open-doorway | Triple-step &> right-rotation
 Triple-step[backwards] | Triple-step[backwards]
 

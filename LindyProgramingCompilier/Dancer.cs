@@ -51,7 +51,7 @@ namespace LindyProgramingCompilier
 
         public void RockStep()
         {
-            CurrentMomentum = new Momentum() { IsLinear = true, IsMoving = true };
+            CurrentMomentum = new Momentum() { IsLinear = true, IsMoving = true, IsForward = true };
             CurrentPosition.UseMomentum(CurrentMomentum);
         }
 
@@ -62,10 +62,47 @@ namespace LindyProgramingCompilier
 
         public void Dance(string danceStepName)
         {
-             var danceFunction = GetFunction(danceStepName);
-            if (danceFunction != null)
+            var danceFunction = GetFunction(danceStepName);
+            
+            danceFunction?.Invoke(this, null);
+            
+        }
+
+        public void Dance(DanceStep danceStep)
+        {
+            if (danceStep.HasDirection)
             {
-                danceFunction.Invoke(this, null);
+                var directionFunction = CurrentMomentum.GetType().GetRuntimeMethods().FirstOrDefault((m) => m.Name == danceStep.Direction);
+                directionFunction?.Invoke(CurrentMomentum, null);
+            }
+
+            Dance(danceStep.Name);
+        }
+    }
+
+    public class DanceStep
+    {
+        public string Name { get; set; }
+        public string Direction { get; set; }
+        public bool HasDirection { get { return !string.IsNullOrEmpty(Direction); } }
+
+
+        public DanceStep(string name)
+        {
+            this.Name = name;
+        }
+
+        public static DanceStep Create(string command)
+        {
+            var commands = command.Split('>');
+
+            if (commands.Length > 1)
+            {
+                return new DanceStep(commands[0]) { Direction = commands[1] };
+            }
+            else
+            {
+                return new DanceStep(commands[0]);
             }
         }
     }

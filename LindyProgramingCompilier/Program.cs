@@ -26,7 +26,7 @@ namespace LindyProgramingCompilier
                     //var commandPair = parser.CreateCommandPair(parser.ParseCommandPair(lindyCommandString));
 
                     //floor.Run(commandPair);
-                    dancer.Dance(lindyCommandString);
+                    dancer.Dance(DanceStep.Create(lindyCommandString));
                     WriteLine("\nCurrent State => " + floor.PositionValuesString());
                     WriteLine(floor.ValueGrid());
                 }
